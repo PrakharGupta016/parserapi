@@ -6,5 +6,4 @@ class file_upload(models.Model):
     file_name = models.CharField(max_length=255)
     my_file = models.FileField(upload_to='')
 
-    def __str__(self):
-        return self.file_name
+    
