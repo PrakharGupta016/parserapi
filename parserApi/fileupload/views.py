@@ -13,12 +13,13 @@ def index(request):
         if c_form.is_valid():
                 name = c_form.cleaned_data['file_name']
                 files_store = c_form.cleaned_data['files_data']
-                file_upload(my_file=files_store).save()
+                file_upload(file_name1 =name, my_file=files_store).save()
 
                 data = ResumeParser(f"media/{files_store}").get_extracted_data()
-                # print(files_store)
+                print(files_store)
                 return Response(data)
         else:
+            print(c_form.errors)
             return Response("error") 
 
     else:
